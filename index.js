@@ -10,11 +10,16 @@ var options = {
   cert: fs.readFileSync('keys/certificate.pem')
 };
 
-app.set('port', (process.env.PORT || 5000))
-app.use(express.static(__dirname + '/public'))
+// app.set('port', (process.env.PORT || 5000))
+// app.use(express.static(__dirname + '/public'))
 
-// http.createServer(app).listen(5000);
-https.createServer(options, app)
+http.createServer(app).listen(6000,  function() {
+  console.log("Node app is running at localhost:" + 6000)
+})
+
+https.createServer(options, app).listen(5000, function() {
+  console.log("Node app is running at localhost:" + 5000)
+})
 
 
 
@@ -22,7 +27,7 @@ https.createServer(options, app)
 var EchoJSONParser = require('echoJSONParser')
 
 app.get('/', function(request, response) {
-  response.send("Hello world")
+  response.send("Hello wordd")
 })
 
 
@@ -38,7 +43,5 @@ app.post('/', function(request, response){
 
 });
 
-app.listen(app.get('port'), function() {
-  console.log("Node app is running at localhost:" + app.get('port'))
-})
+
 

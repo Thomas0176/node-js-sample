@@ -38,10 +38,13 @@ app.post('/', function(request, response){
 
 	var responseString = echoJSONParser.createResponse();
 	
-	response.writeHead(200, {"Content-Type": "application/json"});
+	response.writeHead(200, {
+		"Content-Length": responseString.length,
+		"Content-Type": "application/json"
+	});
+
+    
   	response.end(responseString)
 
 });
-
-
 

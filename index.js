@@ -22,8 +22,7 @@ https.createServer(options, app)
 var EchoJSONParser = require('echoJSONParser')
 
 app.get('/', function(request, response) {
-  var echoJSONParser = new EchoJSONParser('request')
-  response.send(echoJSONParser.getRequestObject())
+  response.send("Hello world")
 })
 
 

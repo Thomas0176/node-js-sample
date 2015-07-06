@@ -1,0 +1,15 @@
+GetOpinionOn what do you think of {Rikel|name}
+GetOpinionOn what do you think of {Charles|name}
+GetOpinionOn what do you think of {Gab|name}
+GetOpinionOn what do you think of {Thomas|name}
+GetOpinionOn what do you think of {Ramon|name}
+GetOpinionOn what do you think of {Henning|name}
+GetOpinionOn what do you think of {Jenna|name}
+GetOpinionOn what do you think of {People|name} that suck?
+
+WhatDidNameSay what did {Rikel|name} just say? 
+WhatDidNameSay what did {Charles|name} just say? 
+WhatDidNameSay what did {Ramon|name} just say?
+
+
+

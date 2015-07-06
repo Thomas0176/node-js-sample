@@ -1,0 +1,22 @@
+{
+  "intents": [
+    {
+      "intent": "GetOpinionOn",
+      "slots": [
+        {
+          "name": "name",
+          "type": "LITERAL"
+        }
+      ]
+    },
+    {
+      "intent": "WhatDidNameSay",
+      "slots": [
+        {
+          "name": "name",
+          "type": "LITERAL"
+        }
+       ]
+    }
+  ]
+}

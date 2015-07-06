@@ -17,6 +17,7 @@ var NAMES = {
  };
 
 //Starts the express app
+
 var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
@@ -63,7 +64,9 @@ app.get('/', function(request, response, next) {
 });
 
 
+
 app.post('/', function(request, response, next){
+
 	
 	var echoJSONParser = new EchoJSONParser(request.body);
 	

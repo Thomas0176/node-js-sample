@@ -17,6 +17,7 @@ var NAMES_LIST = [
  ];
 
 
+
 var express = require('express');
 var app = express();
 var https = require('https');
@@ -60,7 +61,9 @@ app.get('/', function(request, response) {
 app.post('/', function(request, response){
 	var echoJSONParser = new EchoJSONParser('request')
 
-	var responseString = echoJSONParser.createResponse();
+
+
+	var responseString = echoJSONParser.createResponse(NAMES_LIST[0]);
 	
 	response.writeHead(200, {
 		"Content-Length": responseString.length,

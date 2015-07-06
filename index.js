@@ -74,7 +74,7 @@ app.post('/', function(request, response, next){
 		var person = NAMES[echoJSONParser.intent.slots.name.value];
 		console.log(person);
 		
-		var responseString = echoJSONParser.createResponse();
+		var responseString = echoJSONParser.createResponse(person);
 	
 		response.writeHead(200, {
 			"Content-Length": responseString.length,

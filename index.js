@@ -66,16 +66,26 @@ app.get('/', function(request, response, next) {
 app.post('/', function(request, response, next){
 	
 	var echoJSONParser = new EchoJSONParser(request.body);
-
-	var responseString = echoJSONParser.createResponse();
 	
-	response.writeHead(200, {
-		"Content-Length": responseString.length,
-		"Content-Type": "application/json"
-	});
-
-    
-  	response.end(responseString);
-
+	if (echoJSONParser.requestType !== "IntentRequest"){
+		//TODO: define logic for onLaunch and onSessionEnd requests
+		response.end();
+	} else if (echoJSONParser.intent.name=== "GetOpinionOn") {
+		var person = NAMES[echoJSONParser.intent.slots.name.value];
+		console.log(person);
+		
+		var responseString = echoJSONParser.createResponse();
+	
+		response.writeHead(200, {
+			"Content-Length": responseString.length,
+			"Content-Type": "application/json"
+		});
+	
+    	
+  		response.end(responseString);
+	} else {
+		//TODO: define logic for other intents
+		response.end();
+	}
 });
 

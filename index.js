@@ -74,13 +74,17 @@ app.post('/', function(request, response, next){
 	var echoJSONParser = new EchoJSONParser(request.body);
 	
 	if (echoJSONParser.requestType !== "IntentRequest"){
+		console.log("In 1st if !-- IntentRequest");
+
 		//TODO: define logic for onLaunch and onSessionEnd requests
 		response.writeHead(200, {
-			"Content-Length": responseString.length,
+			"Content-Length": "0",
 			"Content-Type": "application/json"
 		});
 		response.end();
 	} else if (echoJSONParser.intent.name=== "GetOpinionOn") {
+		console.log("In get opinionON intent");
+
 		var person = NAMES[echoJSONParser.intent.slots.name.value];
 		console.log(person);
 		
@@ -94,9 +98,11 @@ app.post('/', function(request, response, next){
     	
   		response.end(responseString);
 	} else {
+		console.log("In last ELSE");
+
 		//TODO: define logic for other intents
 		response.writeHead(200, {
-			"Content-Length": responseString.length,
+			"Content-Length": "0",
 			"Content-Type": "application/json"
 		});
 		response.end();

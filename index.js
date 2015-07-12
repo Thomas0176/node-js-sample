@@ -54,9 +54,9 @@ http.createServer(app).listen(8080,  function() {
 
 
 //Used to use encryption
-// https.createServer(options, app).listen(5000, function() {
-//   console.log("Node app is running at localhost:" + 5000)
-// })
+ https.createServer(options, app).listen(5000, function() {
+   console.log("https Node app is running at localhost:" + 5000)
+})
 
 
 app.get('/', function(request, response, next) {

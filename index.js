@@ -61,11 +61,14 @@ http.createServer(app).listen(8080,  function() {
 
 app.get('/', function(request, response, next) {
   response.send("Hello world");
+  console.log("GET request received");
+
 });
 
 
 
 app.post('/', function(request, response, next){
+	console.log("POST request received");
 
 	
 	var echoJSONParser = new EchoJSONParser(request.body);

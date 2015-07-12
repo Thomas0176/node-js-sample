@@ -72,6 +72,10 @@ app.post('/', function(request, response, next){
 	
 	if (echoJSONParser.requestType !== "IntentRequest"){
 		//TODO: define logic for onLaunch and onSessionEnd requests
+		response.writeHead(200, {
+			"Content-Length": responseString.length,
+			"Content-Type": "application/json"
+		});
 		response.end();
 	} else if (echoJSONParser.intent.name=== "GetOpinionOn") {
 		var person = NAMES[echoJSONParser.intent.slots.name.value];
@@ -88,6 +92,10 @@ app.post('/', function(request, response, next){
   		response.end(responseString);
 	} else {
 		//TODO: define logic for other intents
+		response.writeHead(200, {
+			"Content-Length": responseString.length,
+			"Content-Type": "application/json"
+		});
 		response.end();
 	}
 });

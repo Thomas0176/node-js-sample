@@ -10,16 +10,22 @@
  *  Alexa: "Yes, absolutely."
  */
 
-var NAMES_LIST = [
-	{firstName:"Rikelme", lastName:"Rikel", country: "Spain", age: 27, profession: "Student", favoriteSport: "soccer", hasMoustache: "No", eyeColor:"blue"},
-	{firstName:"Ramonster", lastName:"Iglesias", country: "Mexico", age: 26, profession: "Student", favoriteSport: "soccer", hasMoustache: "Yes, but barely.", eyeColor:"blue"},
-	{firstName:"Thomasito", lastName:"von der Ohe", country: "Germany", age: 27, profession: "Package deliverer", favoriteSport: "soccer", hasMoustache: "Yes, an impressive one.", eyeColor:"blue"},
- ];
+var NAMES = {
+	"Rikel":{firstName:"Rikelme", lastName:"Rikel", country: "Spain", age: 27, profession: "Student", favoriteSport: "soccer", hasMoustache: "No", eyeColor:"blue"},
+	"Ramon":{firstName:"Ramonster", lastName:"Iglesias", country: "Mexico", age: 26, profession: "Student", favoriteSport: "soccer", hasMoustache: "Yes, but barely.", eyeColor:"blue"},
+	"Thomas":{firstName:"Thomasito", lastName:"von der Ohe", country: "Germany", age: 27, profession: "Package deliverer", favoriteSport: "soccer", hasMoustache: "Yes, an impressive one.", eyeColor:"blue"},
+ };
 
-
+//Starts the express app
 
 var express = require('express');
 var app = express();
+var bodyParser = require('body-parser');
+//adds parsing capabilities
+var app = express();
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: true}));
+
 var https = require('https');
 var http = require('http');
 var fs = require('fs');
@@ -43,7 +49,7 @@ var options = {
 
 
 http.createServer(app).listen(8080,  function() {
-  console.log("Node app is running at localhost:" + 8080)
+  console.log("Node app is running at localhost:" + 8080);
 });
 
 
@@ -53,25 +59,36 @@ http.createServer(app).listen(8080,  function() {
 // })
 
 
-app.get('/', function(request, response) {
-  response.send("Hello world")
+app.get('/', function(request, response, next) {
+  response.send("Hello world");
 });
 
 
-app.post('/', function(request, response){
-	var echoJSONParser = new EchoJSONParser('request')
 
+app.post('/', function(request, response, next){
 
-
-	var responseString = echoJSONParser.createResponse(NAMES_LIST[0]);
 	
-	response.writeHead(200, {
-		"Content-Length": responseString.length,
-		"Content-Type": "application/json"
-	});
-
-    
-  	response.end(responseString)
-
+	var echoJSONParser = new EchoJSONParser(request.body);
+	
+	if (echoJSONParser.requestType !== "IntentRequest"){
+		//TODO: define logic for onLaunch and onSessionEnd requests
+		response.end();
+	} else if (echoJSONParser.intent.name=== "GetOpinionOn") {
+		var person = NAMES[echoJSONParser.intent.slots.name.value];
+		console.log(person);
+		
+		var responseString = echoJSONParser.createResponse(person);
+	
+		response.writeHead(200, {
+			"Content-Length": responseString.length,
+			"Content-Type": "application/json"
+		});
+	
+    	
+  		response.end(responseString);
+	} else {
+		//TODO: define logic for other intents
+		response.end();
+	}
 });
 

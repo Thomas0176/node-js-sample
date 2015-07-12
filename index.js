@@ -69,8 +69,10 @@ app.get('/', function(request, response, next) {
 
 app.post('/', function(request, response, next){
 	console.log("POST request received");
+	console.log("Request json: " + request.body);
+	console.log(request.body.request)
 
-	
+
 	var echoJSONParser = new EchoJSONParser(request.body);
 	
 	if (echoJSONParser.requestType !== "IntentRequest"){

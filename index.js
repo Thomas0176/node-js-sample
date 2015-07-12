@@ -87,6 +87,7 @@ app.post('/', function(request, response, next){
 	} else if (echoJSONParser.intent.name=== "GetOpinionOn") {
 		console.log("In get opinionON intent");
 
+		console.log ("echoJSONParser.intent.slots.name.value: " + echoJSONParser.intent.slots.name.value);
 		var person = NAMES[echoJSONParser.intent.slots.name.value];
 		console.log(person);
 		

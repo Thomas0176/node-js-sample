@@ -22,6 +22,7 @@ var NAMES = {
 	"gab":{firstName:"gab", lastName:"Rikel", country: "Spain", age: 27, profession: "Student", favoriteSport: "soccer", hasMoustache: "No", eyeColor:"blue"},
 	"gabe":{firstName:"gab", lastName:"Rikel", country: "Spain", age: 27, profession: "Student", favoriteSport: "soccer", hasMoustache: "No", eyeColor:"blue"},
 	"gabrielle":{firstName:"gab", lastName:"Rikel", country: "Spain", age: 27, profession: "Student", favoriteSport: "soccer", hasMoustache: "No", eyeColor:"blue"},
+	"gabriel":{firstName:"gab", lastName:"Rikel", country: "Spain", age: 27, profession: "Student", favoriteSport: "soccer", hasMoustache: "No", eyeColor:"blue"},
 	"henning":{firstName:"henning", lastName:"Rikel", country: "Spain", age: 27, profession: "Student", favoriteSport: "soccer", hasMoustache: "No", eyeColor:"blue"},
 	"people":{firstName:"people", lastName:"Rikel", country: "Spain", age: 27, profession: "Student", favoriteSport: "soccer", hasMoustache: "No", eyeColor:"blue"},
 

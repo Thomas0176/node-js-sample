@@ -11,11 +11,18 @@
  */
 
 var NAMES = {
+	"regain":{firstName:"rikel", lastName:"Rikel", country: "Spain", age: 27, profession: "Student", favoriteSport: "soccer", hasMoustache: "No", eyeColor:"blue"},
 	"right":{firstName:"rikel", lastName:"Rikel", country: "Spain", age: 27, profession: "Student", favoriteSport: "soccer", hasMoustache: "No", eyeColor:"blue"},
 	"rikel":{firstName:"rikel", lastName:"Rikel", country: "Spain", age: 27, profession: "Student", favoriteSport: "soccer", hasMoustache: "No", eyeColor:"blue"},
 	"reichel":{firstName:"rikel", lastName:"Rikel", country: "Spain", age: 27, profession: "Student", favoriteSport: "soccer", hasMoustache: "No", eyeColor:"blue"},
 	"ramon":{firstName:"ramon", lastName:"Iglesias", country: "Mexico", age: 26, profession: "Student", favoriteSport: "soccer", hasMoustache: "Yes, but barely.", eyeColor:"blue"},
+	"raymond":{firstName:"ramon", lastName:"Iglesias", country: "Mexico", age: 26, profession: "Student", favoriteSport: "soccer", hasMoustache: "Yes, but barely.", eyeColor:"blue"},
 	"thomas":{firstName:"thomas", lastName:"von der Ohe", country: "Germany", age: 27, profession: "Package deliverer", favoriteSport: "soccer", hasMoustache: "Yes, an impressive one.", eyeColor:"blue"},
+ 	"charles":{firstName:"charles", lastName:"Rikel", country: "Spain", age: 27, profession: "Student", favoriteSport: "soccer", hasMoustache: "No", eyeColor:"blue"},
+	"gab":{firstName:"gab", lastName:"Rikel", country: "Spain", age: 27, profession: "Student", favoriteSport: "soccer", hasMoustache: "No", eyeColor:"blue"},
+	"henning":{firstName:"henning", lastName:"Rikel", country: "Spain", age: 27, profession: "Student", favoriteSport: "soccer", hasMoustache: "No", eyeColor:"blue"},
+	"people":{firstName:"people", lastName:"Rikel", country: "Spain", age: 27, profession: "Student", favoriteSport: "soccer", hasMoustache: "No", eyeColor:"blue"},
+
  };
 
 //Starts the express app

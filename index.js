@@ -11,6 +11,7 @@
  */
 
 var NAMES = {
+	"nonMatch":{firstName:"", lastName:"", country: "", age: 27, profession: "", favoriteSport: "", hasMoustache: "", eyeColor:""},
 	"regain":{firstName:"rikel", lastName:"Rikel", country: "Spain", age: 27, profession: "Student", favoriteSport: "soccer", hasMoustache: "No", eyeColor:"blue"},
 	"right":{firstName:"rikel", lastName:"Rikel", country: "Spain", age: 27, profession: "Student", favoriteSport: "soccer", hasMoustache: "No", eyeColor:"blue"},
 	"rikel":{firstName:"rikel", lastName:"Rikel", country: "Spain", age: 27, profession: "Student", favoriteSport: "soccer", hasMoustache: "No", eyeColor:"blue"},
@@ -22,7 +23,7 @@ var NAMES = {
 	"gab":{firstName:"gab", lastName:"Rikel", country: "Spain", age: 27, profession: "Student", favoriteSport: "soccer", hasMoustache: "No", eyeColor:"blue"},
 	"gabe":{firstName:"gab", lastName:"Rikel", country: "Spain", age: 27, profession: "Student", favoriteSport: "soccer", hasMoustache: "No", eyeColor:"blue"},
 	"gabrielle":{firstName:"gab", lastName:"Rikel", country: "Spain", age: 27, profession: "Student", favoriteSport: "soccer", hasMoustache: "No", eyeColor:"blue"},
-	"gabriel":{firstName:"gab", lastName:"Rikel", country: "Spain", age: 27, profession: "Student", favoriteSport: "soccer", hasMoustache: "No", eyeColor:"blue"},
+	"gabriel":{firstName:"gab", lastName:"Rikel", country: "Spain", age: 27, profession: "Student", favoriteSport: "soccer", hasMoustache: "No", eyeColor:"blue"},	
 	"henning":{firstName:"henning", lastName:"Rikel", country: "Spain", age: 27, profession: "Student", favoriteSport: "soccer", hasMoustache: "No", eyeColor:"blue"},
 	"people":{firstName:"people", lastName:"Rikel", country: "Spain", age: 27, profession: "Student", favoriteSport: "soccer", hasMoustache: "No", eyeColor:"blue"},
 
@@ -111,6 +112,11 @@ app.post('/', function(request, response, next){
 
 		console.log ("echoJSONParser.intent.slots.name.value: " + echoJSONParser.intent.slots.name.value);
 		var person = NAMES[echoJSONParser.intent.slots.name.value];
+
+		if (person == undefined) {
+			person =  NAMES["nonMatch"]
+			person.firstName = echoJSONParser.intent.slots.name.value;
+		}
 		console.log(person);
 		
 		var responseString = echoJSONParser.createResponse(person);

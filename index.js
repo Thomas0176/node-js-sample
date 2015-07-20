@@ -83,20 +83,30 @@ app.get('/', function(request, response, next) {
 app.post('/', function(request, response, next){
 	console.log("POST request received");
 	console.log("Request json: " + request.body);
-	console.log(request.body.request)
+	console.log(request.body.request);
 
 
 	var echoJSONParser = new EchoJSONParser(request.body);
 	
 	if (echoJSONParser.requestType !== "IntentRequest"){
 		console.log("In 1st if !-- IntentRequest");
-
-		//TODO: define logic for onLaunch and onSessionEnd requests
-		response.writeHead(200, {
-			"Content-Length": "0",
-			"Content-Type": "application/json"
-		});
-		response.end();
+		if (echoJSONParser.requestType === "LaunchRequest") {
+			var responseString = echoJSONParser.createSimpleResponse("Welcome to the Firehouse. Please ask 'what do you think of' questions.");
+			response.writeHead(200, {
+				"Content-Length": responseString.length,
+				"Content-Type": "application/json"
+			});
+    	
+  			response.end(responseString);
+		} else {
+			var responseString = echoJSONParser.createSimpleResponse("Bye, bye.");
+			//TODO: define logic for onLaunch and onSessionEnd requests
+			response.writeHead(200, {
+				"Content-Length": responseString.length,
+				"Content-Type": "application/json"
+			});
+			response.end(responseString);
+		}
 	} else if (echoJSONParser.intent.name=== "GetOpinionOn") {
 		console.log("In get opinionON intent");
 
